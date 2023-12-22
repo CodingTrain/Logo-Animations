@@ -7,19 +7,21 @@ class Shape {
 }
 
 class LineSegment extends Shape {
-  constructor(x1, y1, x2, y2, strokeColor) {
+  constructor(x1, y1, x2, y2, w, strokeColor) {
     super(x1, y1);
     let x = (x1 + x2) * 0.5;
     let y = (y1 + y2) * 0.5;
     let v = createVector(x2 - x1, y2 - y1);
     this.homeAngle = v.heading();
     this.r = dist(x1, y1, x2, y2) / 2;
+    this.w = w;
     this.home.x = x;
     this.home.y = y;
     this.strokeColor = strokeColor;
 
     // make a matter.js body
-    this.body = Bodies.rectangle(x, y, this.r * 2, data.strokeWeight * 2, this.options);
+    // Shorter line segments for overlap?
+    this.body = Bodies.rectangle(x, y, this.r * 1.5, this.w, this.options);
     Body.setAngle(this.body, this.homeAngle);
     Composite.add(engine.world, this.body);
   }
