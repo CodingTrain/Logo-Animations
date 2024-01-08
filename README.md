@@ -1,13 +1,19 @@
 # Coding Train Logo Animations
 
-[The Coding Train](https://thecodingtrain.com)
+This repository contains animations of the Coding Train Logo.
+
+[The Coding Train website](https://thecodingtrain.com)
 
 <p align="center"><img src="assets/logo.png" alt="The Coding Train Logo" width="300px"></p>
 
-This repository contains animations of the Coding Train Logo.
+## Flock Logo
 
-<p align="center"><img href="flockLogo" src="assets/flock-logo.jpg" alt="The Coding Train Logo" width="300px"></p>
+<p align="center"><img src="assets/flock-logo.jpg" alt="The Coding Train Logo" width="300px"></p>
 
-<p align="center"><img href="lerpLogo" src="assets/lerp-logo.jpg" alt="The Coding Train Logo" width="300px"></p>
+## Lerp Logo
 
-<p align="center"><img href="matterLogo" src="assets/matter-logo.jpg" alt="The Coding Train Logo" width="300px"></p>
+<p align="center"><img src="assets/lerp-logo.jpg" alt="The Coding Train Logo" width="300px"></p>
+
+## Matter Logo
+
+<p align="center"><img src="assets/matter-logo.jpg" alt="The Coding Train Logo" width="300px"></p>
