@@ -2,6 +2,8 @@
 
 This repository contains animations of the Coding Train Logo.
 
+## Coding Train Logo
+
 [The Coding Train website](https://thecodingtrain.com)
 
 <p align="center"><img src="assets/logo.png" alt="The Coding Train Logo" width="300px"></p>
