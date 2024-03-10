@@ -1,5 +1,5 @@
 // Constants and Helper Functions
-final float epsilon = 1;
+final float epsilon = 10;
 
 boolean isTangent(GasketCircle c1, GasketCircle c2) {
   float d = c1.gdist(c2);
@@ -10,7 +10,7 @@ boolean isTangent(GasketCircle c1, GasketCircle c2) {
 }
 
 boolean validate(GasketCircle c4, GasketCircle c1, GasketCircle c2, GasketCircle c3, ArrayList<GasketCircle> allCircles) {
-  if (c4.radius < 2) return false;
+  if (c4.radius < 1) return false;
 
   for (GasketCircle other : allCircles) {
     float d = c4.gdist(other);
@@ -126,8 +126,12 @@ class Gasket {
   }
 
   void show() {
-    for (GasketCircle c : this.allCircles) {
+    for (int i = 1; i < this.allCircles.size(); i++) {
+      GasketCircle c = this.allCircles.get(i);
       c.show(this.col);
     }
+    //for (GasketCircle c : this.allCircles) {
+    //  c.show(this.col);
+    //}
   }
 }

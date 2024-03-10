@@ -5,10 +5,17 @@ ArrayList<Gasket> gaskets = new ArrayList<Gasket>();
 
 float logoSW;
 
+PGraphics canvas;
+int W, H;
+
 void setup() {
-  size(15000, 15000);
+  size(800, 800);
+  int factor = 25;
+  W = width*factor;
+  H = height*factor;
+  canvas = createGraphics(W, H);
   randomSeed(10);
-  logoScale = map(width, 400, 800, 6, 12);
+  logoScale = map(W, 400, 800, 6, 12);
 
   data = loadJSONObject("logo.json");
   logoSW = data.getFloat("strokeWeight");
@@ -49,7 +56,7 @@ void setup() {
     }
   }
 
-  for (int n = 0; n < 10; n++) {
+  for (int n = 0; n < 8; n++) {
     int initialSize = gaskets.size();
     for (int i = initialSize - 1; i >= 0; i--) {
       ArrayList<Gasket> nextG = gaskets.get(i).recurse();
@@ -59,9 +66,10 @@ void setup() {
 }
 
 void draw() {
-  background(255);
-  translate(width / 2, height / 2);
-  scale(1);
+  canvas.beginDraw();
+  canvas.background(255);
+  canvas.translate(W / 2, H / 2);
+  canvas.scale(1);
   for (Shape shape : shapes) {
     shape.show();
   }
@@ -69,7 +77,9 @@ void draw() {
   for (Gasket gasket : gaskets) {
     gasket.show();
   }
-  saveFrame("render.png");
-  exit();
+  canvas.endDraw();
+  canvas.save("render.png");
+  image(canvas, 0, 0, width, height);
+  //exit();
   noLoop();
 }

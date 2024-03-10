@@ -24,15 +24,15 @@ class LineSegment extends Shape {
   }
 
   void show() {
-    strokeWeight(logoSW*logoScale);
-    strokeCap(ROUND);
-    strokeJoin(ROUND);
-    pushMatrix();
-    translate(this.position.x, this.position.y);
-    rotate(this.angle);
-    stroke(this.strokeColor);
-    line(-this.r, 0, this.r, 0);
-    popMatrix();
+    canvas.strokeWeight(logoSW*logoScale);
+    canvas.strokeCap(ROUND);
+    canvas.strokeJoin(ROUND);
+    canvas.pushMatrix();
+    canvas.translate(this.position.x, this.position.y);
+    canvas.rotate(this.angle);
+    canvas.stroke(this.strokeColor);
+    canvas.line(-this.r, 0, this.r, 0);
+    canvas.popMatrix();
   }
 }
 
@@ -47,12 +47,12 @@ class Circle extends Shape {
   }
 
   void show() {
-    strokeWeight(logoSW*logoScale);
-    strokeCap(ROUND);
-    strokeJoin(ROUND);
-    stroke(this.strokeColor);
-    noFill();
-    ellipse(this.position.x, this.position.y, this.radius * 2, this.radius * 2);
+    canvas.strokeWeight(logoSW*logoScale);
+    canvas.strokeCap(ROUND);
+    canvas.strokeJoin(ROUND);
+    canvas.stroke(this.strokeColor);
+    canvas.noFill();
+    canvas.ellipse(this.position.x, this.position.y, this.radius * 2, this.radius * 2);
   }
 }
 
@@ -70,11 +70,11 @@ class GasketCircle {
   }
 
   void show(int c) {
-    stroke(c);
-    strokeWeight(this.sw);
-    noFill();
+    canvas.stroke(c);
+    canvas.strokeWeight(this.sw);
+    canvas.noFill();
     float r = this.radius;//-this.sw/2;
-    circle(this.center.a, this.center.b, r * 2);
+    canvas.circle(this.center.a, this.center.b, r * 2);
   }
 
   float gdist(GasketCircle other) {
