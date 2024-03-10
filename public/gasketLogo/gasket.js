@@ -34,9 +34,9 @@ class Gasket {
     this.allCircles = [];
     this.queue = [];
     let c1 = new GasketCircle(-1 / r, x, y);
-    let r2 = random(c1.radius / 4, c1.radius / 2);
-    console.log(c1);
-    let v = p5.Vector.fromAngle(random(TWO_PI));
+    let r2 = c1.radius / 4; // random(c1.radius / 4, c1.radius / 2);
+    //console.log(c1);
+    let v = p5.Vector.fromAngle(0); //random(TWO_PI));
     v.setMag(c1.radius - r2);
     let c2 = new GasketCircle(1 / r2, x + v.x, y + v.y);
     let r3 = v.mag();

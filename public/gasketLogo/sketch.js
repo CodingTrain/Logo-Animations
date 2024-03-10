@@ -11,6 +11,8 @@ let gaskets = [];
 
 function setup() {
   createCanvas(800, 800);
+  randomSeed(10);
+  logoScale = map(width, 400, 800, 6, 12);
 
   // Iterate over data.shapes and make LineSegments and Circles and add to shapes array
   data.shapes.forEach((shape) => {
@@ -42,7 +44,7 @@ function setup() {
     }
   });
 
-  for (let n = 0; n < 2; n++) {
+  for (let n = 0; n < 10; n++) {
     for (let i = gaskets.length - 1; i >= 0; i--) {
       let nextG = gaskets[i].recurse();
       if (nextG) gaskets.push(...nextG);
@@ -62,4 +64,6 @@ function draw() {
     gasket.show();
     //gasket.nextGeneration();
   }
+  save('render.png');
+  noLoop();
 }
