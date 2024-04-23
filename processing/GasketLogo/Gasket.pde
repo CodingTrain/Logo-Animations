@@ -126,7 +126,7 @@ class Gasket {
   }
 
   void show() {
-    for (int i = 1; i < this.allCircles.size(); i++) {
+    for (int i = 0; i < this.allCircles.size(); i++) {
       GasketCircle c = this.allCircles.get(i);
       c.show(this.col);
     }

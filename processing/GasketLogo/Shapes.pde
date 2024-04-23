@@ -66,7 +66,7 @@ class GasketCircle {
     this.center = new Complex(x, y);
     this.bend = bend;
     this.radius = abs(1 / bend);
-    this.sw = map(this.radius, 0, width / 2, 1, 36);
+    this.sw = map(this.radius, 0, 13.23*logoScale, 1, 2.9166*logoScale/4);
   }
 
   void show(int c) {

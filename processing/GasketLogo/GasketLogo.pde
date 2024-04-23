@@ -10,7 +10,7 @@ int W, H;
 
 void setup() {
   size(800, 800);
-  int factor = 25;
+  int factor = 1;
   W = width*factor;
   H = height*factor;
   canvas = createGraphics(W, H);
@@ -19,6 +19,7 @@ void setup() {
 
   data = loadJSONObject("logo.json");
   logoSW = data.getFloat("strokeWeight");
+  println(logoSW, logoScale);
 
   JSONArray shapesData = data.getJSONArray("shapes");
   for (int i = 0; i < shapesData.size(); i++) {
@@ -38,25 +39,24 @@ void setup() {
         color(colorValue)
         ));
     } else if (type.equals("circle")) {
-      shapes.add(new Circle(
-        shape.getFloat("x") * logoScale,
-        shape.getFloat("y") * logoScale,
-        shape.getFloat("r") * logoScale,
-        color(colorValue) // Adjust color parsing as needed
-        ));
+      //shapes.add(new Circle(
+      //  shape.getFloat("x") * logoScale,
+      //  shape.getFloat("y") * logoScale,
+      //  shape.getFloat("r") * logoScale,
+      //  color(colorValue) // Adjust color parsing as needed
+      //  ));
       //float rw = (logoSW * logoScale) / 2;
-      float rw = map( shape.getFloat("r"), 0, width / 2, 1, 36);
-
       gaskets.add(new Gasket(
         shape.getFloat("x") * logoScale,
         shape.getFloat("y") * logoScale,
         shape.getFloat("r") * logoScale,
         color(colorValue)
+        //color(0,100)
         ));
     }
   }
 
-  for (int n = 0; n < 8; n++) {
+  for (int n = 0; n < 10; n++) {
     int initialSize = gaskets.size();
     for (int i = initialSize - 1; i >= 0; i--) {
       ArrayList<Gasket> nextG = gaskets.get(i).recurse();
@@ -78,7 +78,7 @@ void draw() {
     gasket.show();
   }
   canvas.endDraw();
-  canvas.save("render.png");
+  // canvas.save("render.png");
   image(canvas, 0, 0, width, height);
   //exit();
   noLoop();
