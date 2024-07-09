@@ -23,6 +23,8 @@ class Shape {
 
   show() {
     noFill();
+    strokeCap(ROUND);
+    strokeJoin(ROUND);
     strokeWeight(data.strokeWeight * logoScale);
     stroke(this.strokeColor);
     beginShape();
@@ -66,6 +68,8 @@ class Circle extends Shape {
 
   // Just duplicating this for CLOSE
   show() {
+    strokeCap(ROUND);
+    strokeJoin(ROUND);
     strokeWeight(data.strokeWeight * logoScale);
     noFill();
     stroke(this.strokeColor);

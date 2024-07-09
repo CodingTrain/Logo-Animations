@@ -3,7 +3,7 @@
 const circleDetail = 400;
 
 class Drop {
-  constructor(x, y, r) {
+  constructor(x, y, r, col) {
     // Center position of the drop
     this.center = createVector(x, y);
     // Radius of the drop
@@ -18,7 +18,7 @@ class Drop {
       this.vertices[i] = v;
     }
     // Random grayscale color
-    this.col = random(palette);
+    this.col = col;
   }
 
   // Apply a tine math
